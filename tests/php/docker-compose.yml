@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+  nginx:
+    image: $IMAGE
+    environment:
+      NGINX_BACKEND_HOST: php
+      NGINX_VHOST_PRESET: php
+    depends_on:
+      - php
+  php:
+    image: easyploy/php
+
+volumes:
+  codebase:
